@@ -10,6 +10,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    MatTableModule, BrowserAnimationsModule, MatButtonModule
+    MatTableModule, BrowserAnimationsModule, MatButtonModule, MatCardModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]
