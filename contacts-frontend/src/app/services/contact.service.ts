@@ -15,4 +15,8 @@ export class ContactService {
     return this.http.get<IContact[]>(`${this.API}`);
   }
 
+  delete(id:number) {
+    return this.http.delete(`${this.API}/${id}`);
+  }
+
 }

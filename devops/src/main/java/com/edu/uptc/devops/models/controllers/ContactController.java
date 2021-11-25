@@ -56,7 +56,7 @@ public class ContactController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(contactDb));
 	}
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable Long id){
 		service.deleteById(id);
 		return ResponseEntity.noContent().build();
