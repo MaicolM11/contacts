@@ -26,4 +26,8 @@ export class ContactService {
   update(contact: IContact): Observable<IContact> {
     return this.http.put<IContact>(`${this.API}/${contact.id}`, contact);
   }
+
+  add(contact: IContact) {
+    return this.http.post(`${this.API}`, contact);
+  }
 }
