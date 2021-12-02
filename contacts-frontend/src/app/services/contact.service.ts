@@ -19,4 +19,11 @@ export class ContactService {
     return this.http.delete(`${this.API}/${id}`);
   }
 
+  findById(id: number): Observable<IContact> {
+    return this.http.get<IContact>(`${this.API}/${id}`);
+  }
+
+  update(contact: IContact): Observable<IContact> {
+    return this.http.put<IContact>(`${this.API}/${contact.id}`, contact);
+  }
 }

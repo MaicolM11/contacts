@@ -1,0 +1,48 @@
+<div>
+<div *ngIf="currentContact.id">  
+<div class="container">
+    <mat-toolbar>
+        Editar Usuario
+    </mat-toolbar>
+    <mat-card>
+        <form>
+            <mat-grid-list cols="1" rowHeight="70px">
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="ancho">
+                    <mat-label>Nombre</mat-label>
+                    <input name ="firstName" id="firstName" 
+                    [(ngModel)]="currentContact.firstName"
+                    matInput/>
+                  </mat-form-field>
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field class="ancho">
+                    <mat-label>Apellido</mat-label>    
+                    <input name ="lastName" id="lastName" 
+                            [(ngModel)]="currentContact.lastName"
+                            matInput/>
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                  <mat-form-field class="ancho">
+                    <mat-label>Correo</mat-label>
+                    <input name ="email" id="email" 
+                        [(ngModel)]="currentContact.email"
+                        matInput/>
+
+                  </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <button mat-raised-button style="margin-right: 20px;" routerLink="/contacts">Volver</button>
+                <button mat-raised-button type="submit"  (click)='updateContact()' routerLink="/contacts" color="primary">Aceptar</button>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+    </mat-card>
+</div>
+</div>
+<div *ngIf="!currentContact.id">
+    <br />
+    <p>No se puede acceder a este contacto!</p>
+</div>
+</div>
