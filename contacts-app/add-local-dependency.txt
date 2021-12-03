@@ -1,0 +1,6 @@
+mvn install: install-file
+-Dfile=/home/maicol/Documentos/electiva-devops/contacts/commons-microservices/target/commons-microservices-0.0.1-SNAPSHOT.jar
+-DgroupId=com.edu.uptc
+-DartifactId=commons-microservices
+-Dversion=0.0.1-SNAPSHOT
+-Dpackaging=jar

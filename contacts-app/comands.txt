@@ -1,0 +1,2 @@
+docker build -t contacts:prod --no-cache --build-arg JAR_FILE=target/*.jar .
+docker run -p 80:80 -p 8080:8080  --name contacts contacts:prod
