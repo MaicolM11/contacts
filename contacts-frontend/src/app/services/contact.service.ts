@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContactService {
   
-  API: string = "http://127.0.0.1:8080"
+  API: string = "http://localhost:8080/api/contact/" 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<IContact[]> {
