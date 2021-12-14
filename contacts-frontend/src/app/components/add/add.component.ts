@@ -33,6 +33,7 @@ export class AddComponent implements OnInit {
 
 
   newContact() {
+    console.log('Se esta creando un nuevo contacto');
     if(this.contactForm.valid){
       var contact: IContact;
       contact = {
@@ -49,10 +50,11 @@ export class AddComponent implements OnInit {
       });
       this.cerrarForm();
       this.acount++;
+      return true;
     }else {
       alert("Formulario invalido")
     }
-    
+    return false;
   }
 
   abrirForm() {
