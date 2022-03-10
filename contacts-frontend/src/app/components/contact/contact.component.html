@@ -1,8 +1,24 @@
 <br/>
+
 <div class="container" class="mat-elevation-z8">  
 
     <h2 style="text-align: center;">Contactos</h2> 
+
     <table style="margin-left:auto;margin-right:auto;" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef> Foto </th>
+        <td mat-cell *matCellDef="let element"> 
+          <img  *ngIf="element.hasPhoto"
+                        [src]="server +'/uploads/img/'+ element.id" 
+                        class = "img-thumbnail rounded"
+                        style = "width:64px; cursor:pointer;">
+          <img  *ngIf="!element.hasPhoto" 
+                        [src] = "photoDefault" 
+                        class = "img-thumbnail rounded"
+                        style = "width:64px; cursor:pointer;">  
+        </td>
+      </ng-container>
 
       <ng-container matColumnDef="firstName">
         <th mat-header-cell *matHeaderCellDef> Nombres </th>

@@ -6,10 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -26,12 +29,19 @@ public class Contact {
     private String lastName;
     private String email;
 
+    @JsonIgnore
+    private byte[] photo;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createAt;
 
     @PrePersist
     public void prePersist(){
         this.createAt = new Date();
+    }
+
+    public boolean getHasPhoto() {
+        return this.photo != null;
     }
 
 }

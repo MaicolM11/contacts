@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from "@angular/common/http"
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ContactService } from './services/contact.service';
 import { ContactComponent } from './components/contact/contact.component';
 
@@ -36,7 +35,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule, 
     MatTableModule, BrowserAnimationsModule, MatButtonModule, MatCardModule, MatInputModule,
     MatFormFieldModule, MatGridListModule, MatToolbarModule, FormsModule,
-    ReactiveFormsModule, MatPaginatorModule, HttpClientTestingModule
+    ReactiveFormsModule, MatPaginatorModule
   ],
   providers: [ContactService],
   bootstrap: [AppComponent]

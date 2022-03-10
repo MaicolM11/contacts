@@ -6,38 +6,17 @@
 <div class="overlay" id="overlay">
   <div class="popup" id="popup">
     <h2>Nuevo Usuario</h2>
-    <form [formGroup] = "contactForm" (ngSubmit) = "newContact()">
-        <input type="text" formControlName="firstName" id="firstName" placeholder="Nombres"/>
-        <div class="alert-danger" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" >
-          <div class="container-error-message" *ngIf="contactForm.get('firstName').errors['required']">
-            Nombre es requerido
-          </div>
-          <div class="container-error-message" *ngIf="contactForm.get('firstName').errors['minlength']">
-            Debe contener al menos 3 caracteres
-          </div>
+    <form>
+      <input type="text" id="firstName" placeholder="Nombres" />
+      <input type="text" id="lastName" placeholder="Apellidos"/>
+      <input type="text" id="email" placeholder="Correo"  />
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Select photo</label>
+            <input (change)="photoSelect($event)"  class="form-control" type="file" id="formFile">
         </div>
-        <input type="text" formControlName="lastName" id="lastName" placeholder="Apellidos" />
-        <div class="alert-danger" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" >
-          <div class="container-error-message" *ngIf="contactForm.get('lastName').errors['required']">
-            Apellidos es requerido
-          </div>
-          <div class="container-error-message" *ngIf="contactForm.get('lastName').errors['minlength']">
-            Debe contener al menos 3 caracteres
-          </div>
-        </div>
-        <input type="text" formControlName="email" id="email" placeholder="Correo" />
-        <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)" >
-          <div class="container-error-message" *ngIf="contactForm.get('email').errors['required']">
-            Email es requerido
-          </div>
-          <div class="container-error-message" *ngIf="(email.dirty || email.touched) && email.invalid && contactForm.get('email').errors['pattern']">
-            Debe ingresar un correo valido
-          </div>
-        </div>
-        <button mat-raised-button class="registrar" color="primary" id="registrar">Registrar</button>
-        <button mat-raised-button class="cancelar" color="warn" (click)="cerrarForm()" id="cancelar">Cancelar</button>
     </form>
+    <button mat-raised-button class="cancelar" color="warn" (click)="cerrarForm()">Cancelar</button>
+    <button mat-raised-button class="registrar" color="primary" (click)="create()">Registrar</button>
   </div>
-  
 
-</div>
+</div> 

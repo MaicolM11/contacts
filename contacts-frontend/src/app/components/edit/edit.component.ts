@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ContactService } from 'src/app/services/contact.service';
-import { IContact } from 'src/app/models/contact.interface';
+import { Contact } from 'src/app/models/contact';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,13 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditComponent implements OnInit {
   form: FormGroup;
-  currentContact: IContact = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    id: 0,
-    createAt: new Date(),
-  };
+  currentContact: Contact = new Contact();
+  
   constructor(private fb:FormBuilder, private service: ContactService, private route: ActivatedRoute, 
     private router: Router) { 
     this.form = this.fb.group({

@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IContact } from 'src/app/models/contact.interface';
+import { Contact } from 'src/app/models/contact';
 import { ContactService } from 'src/app/services/contact.service';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {SERVER, DEFAULT_PHOTO} from '../../constants/constants'
 
 
 @Component({
@@ -12,9 +13,11 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class ContactComponent implements OnInit {
 
-  public lst : IContact[] = [];
-  public headers = ["firstName", "lastName", "email", "createdAt", "actions"];
+  public lst : Contact[] = [];
+  public headers = ["photo","firstName", "lastName", "email", "createdAt", "actions"];
   dataSource = new MatTableDataSource(this.lst);
+  photoDefault = DEFAULT_PHOTO;
+  server = SERVER;
   constructor(private service: ContactService) { }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
